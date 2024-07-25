@@ -16,14 +16,10 @@ function App() {
     setFormVisible(false);
   };
 
-  // function scrollToTop(e) {
-  //   e.preventDefault();
-  //   window.scrollTo({ top: 0, behavior: 'smooth' });
-  // }
 
   window.addEventListener('scroll', () => {
     const button = document.getElementById('arrow-up');
-    if (window.scrollY > 300) { // Show the button after scrolling down 300px
+    if (window.scrollY > 300) { 
       button.classList.add('show');
     } else {
       // button.classList.remove('show');
