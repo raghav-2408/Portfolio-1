@@ -1,0 +1,23 @@
+{
+  "files": {
+    "main.css": "/Portfolio-1/static/css/main.d63a94f1.css",
+    "main.js": "/Portfolio-1/static/js/main.8aa10ced.js",
+    "static/js/453.1407b060.chunk.js": "/Portfolio-1/static/js/453.1407b060.chunk.js",
+    "static/media/bg.png": "/Portfolio-1/static/media/bg.a706dec7e95bcfa8546d.png",
+    "static/media/coursera.png": "/Portfolio-1/static/media/coursera.4cc4b1b624207d40a069.png",
+    "static/media/smart.png": "/Portfolio-1/static/media/smart.538118bb7f1eccb7a54e.png",
+    "static/media/infosys1.png": "/Portfolio-1/static/media/infosys1.554f51f3d2ee4bf2183c.png",
+    "static/media/Password.jpeg": "/Portfolio-1/static/media/Password.56eac4b236ba720af53d.jpeg",
+    "static/media/react.jpeg": "/Portfolio-1/static/media/react.4df1119bdf553571a820.jpeg",
+    "static/media/pomo.jpeg": "/Portfolio-1/static/media/pomo.dddc03d868e09a30650a.jpeg",
+    "static/media/css1.jpeg": "/Portfolio-1/static/media/css1.1c0fdfd4a28c428788ed.jpeg",
+    "index.html": "/Portfolio-1/index.html",
+    "main.d63a94f1.css.map": "/Portfolio-1/static/css/main.d63a94f1.css.map",
+    "main.8aa10ced.js.map": "/Portfolio-1/static/js/main.8aa10ced.js.map",
+    "453.1407b060.chunk.js.map": "/Portfolio-1/static/js/453.1407b060.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.d63a94f1.css",
+    "static/js/main.8aa10ced.js"
+  ]
+}
