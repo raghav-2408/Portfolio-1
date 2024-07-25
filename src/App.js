@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import ContactForm from './ContactForm';
 import './App.css';
 import bg from './bg.png';
@@ -7,9 +7,13 @@ import img2 from './css1.jpeg';
 import img3 from './pomo.jpeg';
 import img4 from './Checklist.jpeg';
 import img5 from './Password.jpeg';
+import img6 from './coursera.png';
+import img7 from './smart.png';
+import img8 from './infosys1.png';
 
 function App() {
   const [isFormVisible, setFormVisible] = useState(false);
+  const [showWelcome, setShowWelcome] = useState(true);
 
   const handleContactClick = () => {
     setFormVisible(true);
@@ -19,22 +23,50 @@ function App() {
     setFormVisible(false);
   };
 
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setShowWelcome(false);
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }, 3000); // Adjust time (in ms) for how long the welcome message is shown
 
-  window.addEventListener('scroll', () => {
-    const button = document.getElementById('arrow-up');
-    if (window.scrollY > 300) { 
-      button.classList.add('show');
-    } else {
-      // button.classList.remove('show');
-      button.classList.add('hide');
-    }
-  });
+    return () => clearTimeout(timer);
+  }, []);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const button = document.getElementById('arrow-up');
+      if (window.scrollY > 300) {
+        button.classList.add('show');
+      } else {
+        button.classList.remove('show');
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      console.log('Current Scroll Y:', window.scrollY);
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
 
   return (
     <>
+      {showWelcome && (
+        <div className="welcome-message">
+          <h1>Welcome!</h1>
+        </div>
+      )}
+
       <div className="container">
         <button className='btn' id="arrow-up" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>
-          <i class="fa-solid fa-arrow-up"></i>
+          <i className="fa-solid fa-arrow-up"></i>
         </button>
         <div className="imgg">
           <img src={bg} alt="" className="img1" />
@@ -49,9 +81,9 @@ function App() {
             </button>
             <div className="collapse navbar-collapse" id="navbarSupportedContent">
               <ul className="navbar-nav me-auto mb-2 mb-lg-0">
-                <li className="nav-item">
+                {/* <li className="nav-item">
                   <a className="nav-link active text-white mx-5" aria-current="page" href="https://drive.google.com/file/d/1HuKwmvZYmSHNULuwWYozBODx3pm7n1ok/view?usp=sharing" target='__blank'>Resume</a>
-                </li>
+                </li> */}
                 <li className="nav-item">
                   <a className="nav-link text-white mx-5" href="#edu">Education</a>
                 </li>
@@ -60,6 +92,9 @@ function App() {
                 </li>
                 <li className="nav-item">
                   <a className="nav-link text-white mx-5" href="#tech">Skills</a>
+                </li>
+                <li className="nav-item">
+                  <a className="nav-link text-white mx-5" href="#certificate">Certificates</a>
                 </li>
                 <li className="nav-item">
                   <a className="nav-link text-white mx-5" href="#cnt">Contact</a>
@@ -76,6 +111,11 @@ function App() {
           <h3 id="web">Aspiring Technologist</h3>
           <p className="my-3" id="self"> <span>{'>>>'}</span> I want to make things easier!</p>
           <p className="my-3"> <span>{'>>>'}</span> I'm currently looking for new opportunities. Feel free to reach out via email or social media!</p>
+
+          <a className="nav-link active text-white mx-5" aria-current="page" href="https://drive.google.com/file/d/1HuKwmvZYmSHNULuwWYozBODx3pm7n1ok/view?usp=sharing" target='__blank'>
+            <button className='btn btn-dark text-center my-5' style={{ border: "3px solid white", }}>Resume</button>
+          </a>
+
         </div>
 
         {/* Education Section */}
@@ -115,125 +155,168 @@ function App() {
         {/* Projects Section */}
         <h1 className="project-header mx-1 text-center my-5" id="proj">Projects</h1>
         <div id="projects" className="container my-5">
-  <div className="row">
-
-    <div className="col-md-4 mb-4">
-      <div className="card" style={{ width: '90%' }}>
-        <img src={img1} className="card-img-top" alt="Student Portal" />
-        <div className="card-body">
-          <h5 className="card-title">Student Portal</h5>
-          <p className="card-text">Developed a student portal with React JS, Bootstrap CSS, and PostgreSQL for efficient data management</p>
-          <a href="https://dog-broad.github.io/AntHillProduction/" className="btn btn-dark" target = "__blank"><i className='fa fa-link'></i> Visit</a>
+          <div className="row">
+            <div className="col-md-4 mb-4">
+              <div className="card" style={{ width: '90%' }}>
+                <img src={img1} className="card-img-top" alt="Student Portal" />
+                <div className="card-body">
+                  <h5 className="card-title">Student Portal</h5>
+                  <p className="card-text">Developed a student portal with React JS, Bootstrap CSS, and PostgreSQL for efficient data management</p>
+                  <a href="https://dog-broad.github.io/AntHillProduction/" className="btn btn-dark" target="__blank"><i className='fa fa-link'></i> Visit</a>
+                </div>
+              </div>
+            </div>
+            <div className="col-md-4 mb-4">
+              <div className="card" style={{ width: '90%' }}>
+                <img src={img2} className="card-img-top" alt="Facebook Sign-In Clone" />
+                <div className="card-body">
+                  <h5 className="card-title">Facebook Sign-In Clone</h5>
+                  <p className="card-text">Developed a clone of the Facebook sign in page using HTML and CSS, matching the original page.</p>
+                  <a href="https://raghav-fb-clone.netlify.app/" className="btn btn-dark" target='__blank'><i className='fa fa-link'></i> Visit</a>
+                </div>
+              </div>
+            </div>
+            <div className="col-md-4 mb-4">
+              <div className="card" style={{ width: '90%' }}>
+                <img src={img2} className="card-img-top" alt="Google Sign-In Clone" />
+                <div className="card-body">
+                  <h5 className="card-title">Google Sign-In Clone</h5>
+                  <p className="card-text">Developed a clone of the Google sign in page using HTML and CSS, matching the original page.</p>
+                  <a href="https://raghav-google-clone.netlify.app/" className="btn btn-dark" target='__blank'><i className='fa fa-link'></i>Visit</a>
+                </div>
+              </div>
+            </div>
+            <div className="col-md-4 mb-4">
+              <div className="card" style={{ width: '90%' }}>
+                <img src={img3} className="card-img-top" alt="Pomodoro Timer" />
+                <div className="card-body">
+                  <h5 className="card-title">Pomodoro Timer</h5>
+                  <p className="card-text">Developed a Pomodoro Timer application using ReactJS and Bootstrap CSS.</p>
+                  <a href="https://pomodoro-raghav.vercel.app/" className="btn btn-dark" target="__blanks"><i className='fa fa-link'></i> Visit</a>
+                </div>
+              </div>
+            </div>
+            <div className="col-md-4 mb-4">
+              <div className="card" style={{ width: '90%' }}>
+                <img src={img4} className="card-img-top" alt="To-Do List" />
+                <div className="card-body">
+                  <h5 className="card-title">To-Do List</h5>
+                  <p className="card-text">Developed a To-Do List application using HTML, CSS, and JavaScript.</p>
+                  <a href="/" className="btn btn-dark" target='__blank'><i className='fa fa-link'></i> Visit</a>
+                </div>
+              </div>
+            </div>
+            <div className="col-md-4 mb-4">
+              <div className="card" style={{ width: '90%' }}>
+                <img src={img5} className="card-img-top" alt="Password Generator" />
+                <div className="card-body">
+                  <h5 className="card-title">Password Generator</h5>
+                  <p className="card-text">Developed a Password Generator application using HTML, CSS, and JavaScript.</p>
+                  <a href="https://password-generator-raghav.netlify.app/" className="btn btn-dark" target="__blank"><i className='fa fa-link' ></i> Visit</a>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
-      </div>
-    </div>
-
-    <div className="col-md-4 mb-4">
-      <div className="card" style={{ width: '90%' }}>
-        <img src={img2} className="card-img-top" alt="Facebook Sign-In Clone" />
-        <div className="card-body">
-          <h5 className="card-title">Facebook Sign-In Clone</h5>
-          <p className="card-text">Developed a clone of the Facebook sign in page using HTML and CSS, matching the original page.</p>
-          <a href="https://raghav-fb-clone.netlify.app/" className="btn btn-dark" target='__blank'><i className='fa fa-link'></i> Visit</a>
-        </div>
-      </div>
-    </div>
-
-    <div className="col-md-4 mb-4">
-      <div className="card" style={{ width: '90%' }}>
-        <img src={img2} className="card-img-top" alt="Google Sign-In Clone" />
-        <div className="card-body">
-          <h5 className="card-title">Google Sign-In Clone</h5>
-          <p className="card-text">Developed a clone of the Google sign in page using HTML and CSS, matching the original page.</p>
-          <a href="https://raghav-google-clone.netlify.app/" className="btn btn-dark" target='__blank'><i className='fa fa-link'></i>Visit</a>
-        </div>
-      </div>
-    </div>
-
-    <div className="col-md-4 mb-4">
-      <div className="card" style={{ width: '90%' }}>
-        <img src={img3} className="card-img-top" alt="Pomodoro Timer" />
-        <div className="card-body">
-          <h5 className="card-title">Pomodoro Timer</h5>
-          <p className="card-text">Developed a Pomodoro Timer application using HTML, CSS, and JavaScript.</p>
-          <a href="https://pomodoro-raghav.vercel.app/" className="btn btn-dark" target = "__blanks"><i className='fa fa-link'></i> Visit</a>
-        </div>
-      </div>
-    </div>
-
-    <div className="col-md-4 mb-4">
-      <div className="card" style={{ width: '90%' }}>
-        <img src={img4} className="card-img-top" alt="To-Do List" />
-        <div className="card-body">
-          <h5 className="card-title">To-Do List</h5>
-          <p className="card-text">Developed a To-Do List application using HTML, CSS, and JavaScript.</p>
-          <a href="/" className="btn btn-dark" target='__blank'><i className='fa fa-link'></i> Visit</a>
-        </div>
-      </div>
-    </div>
-
-    <div className="col-md-4 mb-4">
-      <div className="card" style={{ width: '90%' }}>
-        <img src={img5} className="card-img-top" alt="Password Generator" />
-        <div className="card-body">
-          <h5 className="card-title">Password Generator</h5>
-          <p className="card-text">Developed a Password Generator application using HTML, CSS, and JavaScript.</p>
-          <a href="https://password-generator-raghav.netlify.app/" className="btn btn-dark" target = "__blank"><i className='fa fa-link' ></i> Visit</a>
-        </div>
-      </div>
-    </div>
-
-  </div>
-</div>
 
         {/* Skills */}
-
         <h1 className='text-center mx-1' id="tech">Technical Skills</h1>
-
         <div className="skills text-center my-5">
           <div className="row">
             <div className="col-md-3 mb-4" id="skill-items">
-              <i class="fa-brands fa-python" id="icon"></i>
+              <i className="fa-brands fa-python" id="icon"></i>
               <p className='skills-text'>Python</p>
             </div>
             <div className="col-md-3 mb-4" id="skill-items">
-              <i class="fa-brands fa-java" id="icon"></i>
+              <i className="fa-brands fa-java" id="icon"></i>
               <p className='skills-text'>Java</p>
             </div>
             <div className="col-md-3 mb-4" id="skill-items">
-              <i class="fa-brands fa-html5" id="icon"></i>
+              <i className="fa-brands fa-html5" id="icon"></i>
               <p className='skills-text'>Html5</p>
             </div>
             <div className="col-md-3 mb-4" id="skill-items">
-              <i class="fa-brands fa-css3-alt" id="icon"></i>
+              <i className="fa-brands fa-css3-alt" id="icon"></i>
               <p className='skills-text'>CSS3</p>
             </div>
             <div className="col-md-3 mb-4" id="skill-items">
-              <i class="fa-brands fa-js" id="icon"></i>
+              <i className="fa-brands fa-js" id="icon"></i>
               <p className='skills-text'>Javascript</p>
             </div>
             <div className="col-md-3 mb-4" id="skill-items">
-              <i class="fa-brands fa-react" id="icon"></i>
+              <i className="fa-brands fa-react" id="icon"></i>
               <p className='skills-text'>ReactJS</p>
             </div>
             <div className="col-md-3 mb-4" id="skill-items">
-              <i class="fa fa-code" id="icon"></i>
+              <i className="fa fa-code" id="icon"></i>
               <p className='skills-text'>MySQL</p>
             </div>
             <div className="col-md-3 mb-4" id="skill-items">
-              <i class="fa fa-database" id="icon"></i>
+              <i className="fa fa-database" id="icon"></i>
               <p className='skills-text'>MongoDB</p>
             </div>
           </div>
         </div>
 
+
+        <div className="certificates">
+
+          <h1 className='text-center mx-1 my-5' id="certificate">Certifications</h1>
+          <div className="row my-5">
+            <div className="col-md-4 mb-4">
+              <div className="card" style={{ width: '90%' }}>
+                <div className="card-body">
+                  <h5 className="card-title text-center">Google Crash Course On Python</h5>
+                  <center>
+                    <img src={img6} alt="..." />
+                  </center>
+                  <p className="card-text text-center"> <b>Python</b></p>
+                  <a href="https://www.coursera.org/account/accomplishments/verify/L78N2DWT4AQZ?utm_campaign=sharing_cta&utm_content=cert_image&utm_medium=certificate&utm_product=course&utm_source=link" className="btn btn-dark" target="__blank"><i className='fa fa-link'></i> Visit</a>
+                </div>
+              </div>
+            </div>
+
+            <div className="col-md-4 mb-4">
+              <div className="card" style={{ width: '90%' }}>
+                <div className="card-body">
+                  <h3 className="card-title text-center">Smart Interviews</h3>
+                  <h5 className='card-title text-center'> (Smart Coder) </h5>
+                  <center>
+                    <img src={img7} alt="" />
+                  </center>
+                  <p className="card-text text-center"> <b>Data Structures & Algorithms</b> </p>
+                  <a href="https://smartinterviews.in/certificate/bd117769" className="btn btn-dark" target="__blank"><i className='fa fa-link'></i> Visit</a>
+                </div>
+              </div>
+            </div>
+
+
+            <div className="col-md-4 mb-4">
+              <div className="card" style={{ width: '90%' }}>
+                <div className="card-body">
+                  <h5 className="card-title text-center">Infosys Python Foundation Certication</h5>
+                  <center>
+                    <img src={img8} alt="" />
+                  </center>
+                  <p className="card-text text-center"><b>Python</b></p>
+                  <a href="https://drive.google.com/file/d/1BfgtllseY9PqugVapdl3t-pZNchNwQQI/view?usp=sharing" className="btn btn-dark" target="__blank"><i className='fa fa-link'></i> Visit</a>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+
+
         {/* Footer Section */}
         <h1 className="text-center mx-1" id="cnt">Contact Me</h1>
-        {/* <h3 className="text-center">Social Links</h3> */}
         <div className="footer d-flex justify-content-around my-5 bg-dark">
           <a href="https://github.com/raghav-2408" className="footer-link" target='__blank'><i className="fa-brands fa-github"></i> Github</a>
           <a href="https://www.linkedin.com/in/gadapa-raghavendra24/" className="footer-link" target='__blank'><i className="fa-brands fa-linkedin"></i> LinkedIn</a>
-          <a onClick={handleContactClick} className="footer-link" style={{ cursor: 'pointer' }}><i className="fa-solid fa-envelope"></i> Gmail</a>
+          <button onClick={handleContactClick} className="footer-link" style={{ cursor: 'pointer', background: 'none', border: 'none', padding: 0, color: 'inherit' }}>
+            <i className="fa-solid fa-envelope"></i> Gmail
+          </button>
           <a href="https://www.instagram.com/raghavvvv.24/" className="footer-link" target='__blank'><i className="fa-brands fa-instagram"></i> Instagram</a>
           <a href="https://x.com/raghav_240824" className="footer-link" target='__blank'><i className="fa-brands fa-x-twitter"></i> Twitter</a>
         </div>

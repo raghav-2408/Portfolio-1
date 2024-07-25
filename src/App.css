@@ -208,7 +208,6 @@ nav ul li a:hover {
 
 span {
   color: rgb(242, 100, 6);
-  /* Blue color */
   text-shadow: 1px 1px 5px burlywood;
 }
 
@@ -359,8 +358,87 @@ html {
   scroll-behavior: smooth;
 }
 
-.card a{
+.card a {
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+
+@keyframes fadeInSlideUp {
+  0% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  30% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  70% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(-100%);
+  }
+}
+
+/* Welcome message styles */
+.welcome-message {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: black;
+  color: white;
+  font-size: 5rem;
+  z-index: 9999;
+  animation: fadeInSlideUp 3s ease-out;
+}
+
+
+.welcome-message.hidden {
+  opacity: 0;
+  pointer-events: none;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+#arrow-up {
+  opacity: 0;
+  transition: opacity 0.5s;
+}
+
+#arrow-up.show {
+  opacity: 1;
+}
+
+/* navbar ka glitch resolve */
+
+#edu,
+#proj,
+#tech,
+#cnt,
+#certificate {
+  padding-top: 80px;
+}
+
+
+
+.navbar-toggler {
+  border: none;
+  background: transparent;
+  background-image: url("images.png");
+  background-size: 100%;
+  background-position: 0%;
 }
