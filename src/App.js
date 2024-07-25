@@ -4,6 +4,9 @@ import './App.css';
 import bg from './bg.png';
 import img1 from './react.jpeg';
 import img2 from './css1.jpeg';
+import img3 from './pomo.jpeg';
+import img4 from './Checklist.jpeg';
+import img5 from './Password.jpeg';
 
 function App() {
   const [isFormVisible, setFormVisible] = useState(false);
@@ -112,28 +115,76 @@ function App() {
         {/* Projects Section */}
         <h1 className="project-header mx-1 text-center my-5" id="proj">Projects</h1>
         <div id="projects" className="container my-5">
-          <div className="row">
-            {[
-              { src: img1, title: "Student Portal", text: "Developed a student portal with React JS, Bootstrap CSS, and PostgreSQL for efficient data management" },
-              { src: img2, title: "Facebook Sign-In Clone", text: "Developed a clone of the Facebook sign in page using HTML and CSS, matching the original page." },
-              { src: img2, title: "Google Sign-In Clone", text: "Developed a clone of the Google sign in page using HTML and CSS, matching the original page." },
-              { src: img2, title: "Pomodoro Timer", text: "Developed a Pomodoro Timer application using HTML, CSS, and JavaScript." },
-              { src: img2, title: "To-Do List", text: "Developed a To-Do List application using HTML, CSS, and JavaScript." },
-              { src: img2, title: "Password Generator", text: "Developed a Password Generator application using HTML, CSS, and JavaScript." }
-            ].map((project, index) => (
-              <div className="col-md-4 mb-4" key={index}>
-                <div className="card" style={{ width: '90%' }}>
-                  <img src={project.src} className="card-img-top" alt={project.title} />
-                  <div className="card-body">
-                    <h5 className="card-title">{project.title}</h5>
-                    <p className="card-text">{project.text}</p>
-                    <a href="/" className="btn btn-dark"><i className='fa fa-link'></i> Visit</a>
-                  </div>
-                </div>
-              </div>
-            ))}
-          </div>
+  <div className="row">
+
+    <div className="col-md-4 mb-4">
+      <div className="card" style={{ width: '90%' }}>
+        <img src={img1} className="card-img-top" alt="Student Portal" />
+        <div className="card-body">
+          <h5 className="card-title">Student Portal</h5>
+          <p className="card-text">Developed a student portal with React JS, Bootstrap CSS, and PostgreSQL for efficient data management</p>
+          <a href="https://dog-broad.github.io/AntHillProduction/" className="btn btn-dark" target = "__blank"><i className='fa fa-link'></i> Visit</a>
         </div>
+      </div>
+    </div>
+
+    <div className="col-md-4 mb-4">
+      <div className="card" style={{ width: '90%' }}>
+        <img src={img2} className="card-img-top" alt="Facebook Sign-In Clone" />
+        <div className="card-body">
+          <h5 className="card-title">Facebook Sign-In Clone</h5>
+          <p className="card-text">Developed a clone of the Facebook sign in page using HTML and CSS, matching the original page.</p>
+          <a href="https://raghav-fb-clone.netlify.app/" className="btn btn-dark" target='__blank'><i className='fa fa-link'></i> Visit</a>
+        </div>
+      </div>
+    </div>
+
+    <div className="col-md-4 mb-4">
+      <div className="card" style={{ width: '90%' }}>
+        <img src={img2} className="card-img-top" alt="Google Sign-In Clone" />
+        <div className="card-body">
+          <h5 className="card-title">Google Sign-In Clone</h5>
+          <p className="card-text">Developed a clone of the Google sign in page using HTML and CSS, matching the original page.</p>
+          <a href="https://raghav-google-clone.netlify.app/" className="btn btn-dark" target='__blank'><i className='fa fa-link'></i>Visit</a>
+        </div>
+      </div>
+    </div>
+
+    <div className="col-md-4 mb-4">
+      <div className="card" style={{ width: '90%' }}>
+        <img src={img3} className="card-img-top" alt="Pomodoro Timer" />
+        <div className="card-body">
+          <h5 className="card-title">Pomodoro Timer</h5>
+          <p className="card-text">Developed a Pomodoro Timer application using HTML, CSS, and JavaScript.</p>
+          <a href="https://pomodoro-raghav.vercel.app/" className="btn btn-dark" target = "__blanks"><i className='fa fa-link'></i> Visit</a>
+        </div>
+      </div>
+    </div>
+
+    <div className="col-md-4 mb-4">
+      <div className="card" style={{ width: '90%' }}>
+        <img src={img4} className="card-img-top" alt="To-Do List" />
+        <div className="card-body">
+          <h5 className="card-title">To-Do List</h5>
+          <p className="card-text">Developed a To-Do List application using HTML, CSS, and JavaScript.</p>
+          <a href="/" className="btn btn-dark" target='__blank'><i className='fa fa-link'></i> Visit</a>
+        </div>
+      </div>
+    </div>
+
+    <div className="col-md-4 mb-4">
+      <div className="card" style={{ width: '90%' }}>
+        <img src={img5} className="card-img-top" alt="Password Generator" />
+        <div className="card-body">
+          <h5 className="card-title">Password Generator</h5>
+          <p className="card-text">Developed a Password Generator application using HTML, CSS, and JavaScript.</p>
+          <a href="https://password-generator-raghav.netlify.app/" className="btn btn-dark" target = "__blank"><i className='fa fa-link' ></i> Visit</a>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
 
         {/* Skills */}
 

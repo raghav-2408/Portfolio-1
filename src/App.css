@@ -358,3 +358,9 @@ span {
 html {
   scroll-behavior: smooth;
 }
+
+.card a{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
