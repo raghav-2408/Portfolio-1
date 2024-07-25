@@ -27,7 +27,7 @@ function App() {
     const timer = setTimeout(() => {
       setShowWelcome(false);
       window.scrollTo({ top: 0, behavior: 'smooth' });
-    }, 3000); // Adjust time (in ms) for how long the welcome message is shown
+    }, 3000); 
 
     return () => clearTimeout(timer);
   }, []);
@@ -81,9 +81,6 @@ function App() {
             </button>
             <div className="collapse navbar-collapse" id="navbarSupportedContent">
               <ul className="navbar-nav me-auto mb-2 mb-lg-0">
-                {/* <li className="nav-item">
-                  <a className="nav-link active text-white mx-5" aria-current="page" href="https://drive.google.com/file/d/1HuKwmvZYmSHNULuwWYozBODx3pm7n1ok/view?usp=sharing" target='__blank'>Resume</a>
-                </li> */}
                 <li className="nav-item">
                   <a className="nav-link text-white mx-5" href="#edu">Education</a>
                 </li>
